@@ -1,0 +1,11 @@
+# Candidate007: Gaokun UCSI/HPD supplier hypothesis
+
+Trial003/006 waited through uptime6.31 seconds without any DRM node. Both DP controllers and both auxiliary bridges remained unbound, and the existing EC UCSI child had no driver link. Himax input registration persisted. This is stronger evidence than the earlier one-second enumeration, but does not prove UCSI is the only missing component.
+
+007 makes exactly one source change relative to generated006: request `ucsi_huawei_gaokun` immediately after `huawei_gaokun_ec`, before the remaining display setup. All 006 observation commands, module ordering otherwise, 180-second best-effort deadline, 30-second admission reserve, partition identity gates and PID1 refusal remain unchanged. No additional manual dependency loads, firmware changes, timing increases, kernel changes or security bypasses are bundled.
+
+The recorded local kernel source shows the UCSI driver creates the connector HPD bridges; DP bridge acquisition can otherwise defer before DRM component registration. Its seven module dependency files were already verified byte-for-byte inside candidate005; the unchanged base archive contains those same files. These facts justify a controlled test, not a success claim.
+
+The source contract test was observed failing before implementation because the new generator did not exist. Compilation, packaging and any native trial require separate verified evidence. A useful result must distinguish actual UCSI/HPD binding, downstream auxiliary/DP binding, DRM device/connector enumeration and physical display readiness; a successful modprobe alone is insufficient. A normal return to Ubuntu also does not establish hard-lock recovery.
+
+Offline evidence: 16 targeted checks passed in `baremetal-diagnostic-007-tests.txt`, including actual C safety/budget/snapshot tests and the single-change contract. `baremetal-lab-workspace-rw-004.json` verified all 82 prior collected logs before and after restoring lab preparation flags. Packaging then produced a 24,217,422-byte archive, SHA-256 `d0a16f3db2fcc42837783ca704fa6cfd448b301a84c1bdb96fc24f0b4e887bb2`; base entries and archive round-trip passed, as did actual ARM64 non-PID1 refusal. Generated C SHA-256 is `17cd7bc58ef63abd35ab66265eeaf6deef12193660d7cf8f35e8ac0235649436`. No native success is inferred from packaging.

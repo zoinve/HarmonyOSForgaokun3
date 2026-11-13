@@ -1,0 +1,11 @@
+[Unit]
+Description=Reapply local display power-off after Ubuntu graphical sessions start
+
+[Timer]
+OnBootSec=5s
+OnUnitInactiveSec=10s
+AccuracySec=1s
+Unit=harmony-lab-screen-off-001.service
+
+[Install]
+WantedBy=timers.target

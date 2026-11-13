@@ -1,0 +1,13 @@
+[Unit]
+Description=Keep the local Ubuntu GNOME display off during Harmony lab work
+After=display-manager.service
+ConditionPathExists=!/etc/harmony-lab-screen-off.disabled
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 /usr/local/libexec/harmony-lab-screen-off-001.py
+TimeoutStartSec=45
+UMask=0077
+ProtectSystem=strict
+ProtectHome=read-only
+PrivateTmp=true
