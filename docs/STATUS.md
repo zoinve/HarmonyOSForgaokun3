@@ -1,5 +1,16 @@
 # 当前状态与源码入口
 
+## Checkpoint 550 (2026-11-17)
+
+Current state supersedes the notes below: the user confirmed517 Share failure
+and manually restarted. Its P2P backend failed config parsing; regression531
+reproduced and corrected the unsupported `update_config=0` field. Candidate532
+booted once, but its return observation expired and both known SSH endpoints
+are unavailable. Its runtime result is unknown, not a Share success. No retry
+was requested. Candidate546, with official2.12 P2P backend and a private real
+controller probe, is built/tested offline but not installed. See
+[checkpoint550](../reports/share-runtime-checkpoint-550.md).
+
 ## Checkpoint 519 (2026-11-17)
 
 This checkpoint supersedes the earlier current-state notes below. Kernel490
