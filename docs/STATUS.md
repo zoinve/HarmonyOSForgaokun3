@@ -1,5 +1,16 @@
 # 当前状态与源码入口
 
+## Checkpoint 519 (2026-11-17)
+
+This checkpoint supersedes the earlier current-state notes below. Kernel490
+and matching modules500 booted in candidate502; Ubuntu default and screen-off
+timer are preserved. The PMIC resin input device is now enumerated, but physical
+volume-down acceptance is pending. Huawei Share remains unverified: p2p0 was
+created, but the control socket was absent. A reproduced unsupported `-f`
+option caused the P2P binary to print usage and exit zero. Build515 corrects
+the missing file-log option; candidate517 is not yet boot-tested.
+See [checkpoint519](../reports/share-kernel-checkpoint-519.md).
+
 ## 最新进度：2026-11-17
 
 本节取代下文早期手动启动组合的“当前”表述；历史报告不改写。
