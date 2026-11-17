@@ -1,6 +1,23 @@
 # 当前状态与源码入口
 
-## 当前手动启动组合
+## 最新进度：2026-11-17
+
+本节取代下文早期手动启动组合的“当前”表述；历史报告不改写。
+
+- 用户已确认桌面恢复、设置可进入，以及候选 471 的蓝牙连接成功。音频播放、所有蓝牙配置文件与长期稳定性尚未完整验收。
+- 保留桌面基线 173；最新已运行候选为 471，使用原始鸿蒙服务及持久化实验 data。Ubuntu 仍为默认启动，熄屏定时器恢复为 enabled/active。不要重跑已完成的操作实验。
+- 471 加载真实 L3 互联驱动后，两组 CPU 调频节点可读，原频率读取错误消失；但原 CPU 服务多次转储仍为零，任务管理器频率显示尚未验收。
+- 机身音量下键走 PMIC resin，音量上键走 GPIO；已定位缺失的 PMIC 父驱动依赖，实体下键修复尚未上机验证。
+- 华为分享尚未修复。原始日志中 `GetWifiP2pGroupInfo` 有 28 次失败词记录；桥接层要求的 P2P 控制端点未由现有启动路径建立。参考层还依赖定制 `MAGICLINK` 指令，不能把普通 Wi-Fi 或扫描成功算作分享成功。
+- 独立内核候选 490 及配套模块已编译成功。仅开启 memory cgroup v1，并将 PMIC 父驱动、reboot-mode、OSM L3 驱动改为内建。未安装、未启动，兼容平台 Linux 应用和资源限制未验收；未引入 L410 的 Mali/Hi1103 驱动。
+- 多点触控、实际音频、120 Hz 运行验证仍待完成；USB 工作保留但暂停。
+
+新入口：`build-cpufreq-native-471.py`、`build-compat-kernel-490.py`、
+`compat-kernel-489.config`、`analyze-share-492.py`、`package-share-iw-494.py`。
+均位于 `next-experiment/`，构建脚本依赖前序源码和本地未发布输入。
+详见[当前检查点](../reports/driver-share-kernel-checkpoint-496.md)。
+
+## 历史手动启动组合
 
 `build-manual-gpu-041-cleanup-001.py` 生成只含 041 composer 的小型覆盖归档；底包使用原始 032 手动 initramfs，内核和 DTB 使用 031。其 `/init` 不变，没有 033 以后受控测试的 240 秒目标预算与 420 秒独立自动返回进程。菜单参数 `panic=0`，不存在“只改标题、实际仍有 watchdog”的情况。
 

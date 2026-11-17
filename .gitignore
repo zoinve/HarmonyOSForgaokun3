@@ -17,6 +17,8 @@
 !/next-experiment/*.hpp
 !/next-experiment/*.service
 !/next-experiment/*.timer
+!/next-experiment/*.sh
+!/next-experiment/compat-kernel-489.config
 
 /reports/*
 !/reports/*.md

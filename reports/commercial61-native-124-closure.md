@@ -1,0 +1,8 @@
+# Native Setup Seed 124 Closure
+
+- Single run `commercial61-native-087-d0a3c7d1-49d2-4ccd-90ac-d7420c08580f`, 2026-11-16 01:15:02.811265 to 01:19:09.708625 UTC. Do not rerun this numbered boot.
+- Fully shadowed initrd pruning preserved the exact 123 filesystem and shortened the estimated EFI-stub command line to 1644 bytes. Original startup proceeded.
+- Original SceneBoard read `device_provisioned=1`, recorded `isOobeEnable=false` and declined OOBE startup after both user switch and lockscreen readiness. Original logs also observed `user_setup_complete=1`. No startup-guide launch or recovery restart was observed. The prepared real-schema two-database method is effective without editing activation or recovery logic.
+- Original SceneBoard PID 6191 rendered the lockscreen. OCR identified time and `user`; original logs recorded `isLocked: true` after the Super key. Two verified 2560x1600 frames at 123.984859 and 143.109880 seconds had identical pixels. Original MMI/SceneBoard received both key actions, but no visible interaction was verified. Image understanding was unavailable; no visual inspection is claimed.
+- The target ended at the existing bounded timeout and returned to Ubuntu. Retrieved 138 hash-matched files using read-only/noload mounting. Credential scan covered 356135855 bytes without finding the private PSK. Original images, firmware, Ubuntu default, manual entry and enabled/active screen-off timer passed preservation checks; LAB is unmounted.
+- The user subsequently confirmed desktop entry and changed the goal to basic drivers. This is user-confirmed acceptance beyond the machine-observed 124 lockscreen evidence. No further OOBE experiment is planned; preserve the seed/runtime/entry baseline.

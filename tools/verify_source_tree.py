@@ -6,7 +6,7 @@ import subprocess
 import sys
 
 MAX_BYTES = 512 * 1024
-SOURCE_SUFFIXES = {'.py', '.c', '.cpp', '.h', '.hpp', '.service', '.timer'}
+SOURCE_SUFFIXES = {'.py', '.c', '.cpp', '.h', '.hpp', '.service', '.timer', '.sh'}
 SECRETS = re.compile(
     rb'-----BEGIN (?:RSA |OPENSSH |EC )?PRIVATE KEY-----|'
     rb'gh[pousr]_[A-Za-z0-9]{25,}|github_pat_[A-Za-z0-9_]{30,}|'
@@ -20,7 +20,7 @@ def validate_file(name: str, data: bytes) -> list[str]:
     allowed = name in {'README.md', '.gitignore', '.gitattributes',
                        '.github/workflows/source-only.yml'}
     if len(parts) == 2 and parts[0] == 'next-experiment':
-        allowed = p.suffix in SOURCE_SUFFIXES
+        allowed = p.suffix in SOURCE_SUFFIXES or name == 'next-experiment/compat-kernel-489.config'
     if len(parts) >= 2 and parts[0] == 'docs':
         allowed = p.suffix == '.md'
     if len(parts) == 2 and parts[0] == 'reports':

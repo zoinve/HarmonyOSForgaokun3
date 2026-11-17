@@ -1,0 +1,5 @@
+"""Keep deployment guards unchanged for per-stage bounded tracing."""
+from pathlib import Path
+import runpy
+source=runpy.run_path(str(Path(__file__).with_name('install-commercial-native-026.py')))['source'].replace('commercial61-native-026','commercial61-native-027').replace('Valid EGL diagnostic domain 026','Per-stage EGL diagnostics 027')
+if __name__=='__main__':exec(compile(source,__file__,'exec'),{'__name__':'__main__','__file__':__file__})

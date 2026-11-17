@@ -1,0 +1,5 @@
+from pathlib import Path
+
+source = Path(__file__).with_name('analyze-commercial-minimal-054.py').read_text().replace('054', '056')
+if __name__ == '__main__':
+    exec(compile(source, __file__, 'exec'), {'__name__': '__main__', '__file__': __file__})

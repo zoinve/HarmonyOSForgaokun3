@@ -1,5 +1,21 @@
 # HarmonyOS for MateBook E Go / gaokun3
 
+## Progress Update: 2026-11-17
+
+The desktop and Settings are now user-confirmed working. The user also confirmed
+Bluetooth connection on candidate 471. This is not full Bluetooth profile or
+audio acceptance. Current source and remaining work are indexed in
+[the status document](docs/STATUS.md) and
+[the latest checkpoint](reports/driver-share-kernel-checkpoint-496.md).
+
+Candidate 471 exposes real CPU frequency sysfs nodes, but the original CPU
+service still reports zero in sampled dumps; Task Manager is not accepted yet.
+Kernel 490 and matching modules have built successfully with memory cgroup v1,
+built-in PMIC key dependencies, and the L3 interconnect provider. They are not
+installed or runtime-verified. Huawei Share is still under investigation, not
+fixed. The older status table below records the earlier graphics milestone,
+not the current boot combination.
+
 面向华为 **MateBook E Go（gaokun3，Qualcomm SC8280XP / Adreno FD690）** 的 HarmonyOS 适配研究。主要路线是在真实硬件上保留原始 init、系统服务、RenderService 和桌面，通过适配内核、图形分配器、HDI/VDI composer 与输入链路实现运行。
 
 **这是实验性源码仓库，不是一键安装包，也不是已完成验收的操作系统发行版。** 错误的 EFI、分区或驱动操作可能使设备无法启动。务必保留 Ubuntu 默认启动、恢复手段及原始数据备份。

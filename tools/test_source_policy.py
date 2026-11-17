@@ -6,14 +6,17 @@ from verify_source_tree import validate_file
 class SourcePolicyTests(unittest.TestCase):
     def test_authored_source_and_markdown_are_allowed(self):
         for name in ['README.md', 'docs/BUILD.md', 'reports/native-render-041.md',
-                     'next-experiment/native-gpu-composer-041.h', 'tools/check.py']:
+                     'next-experiment/native-gpu-composer-041.h', 'tools/check.py',
+                     'next-experiment/commercial-softbus-observer-101.sh',
+                     'next-experiment/compat-kernel-489.config']:
             self.assertEqual(validate_file(name, b'# plain text\n'), [])
 
     def test_images_archives_binaries_and_raw_evidence_are_rejected(self):
         for name in ['system.img', 'install.iso', 'next-experiment/initrd.img',
                      'next-experiment/linux', 'next-experiment/driver.so',
                      'reports/raw.log', 'next-experiment/run-001/runner.py',
-                     'references/vendor.c', 'docs/screenshot.png']:
+                     'references/vendor.c', 'docs/screenshot.png',
+                     'next-experiment/private.config']:
             self.assertTrue(validate_file(name, b'text'), name)
 
     def test_disguised_binary_or_oversized_file_is_rejected(self):
