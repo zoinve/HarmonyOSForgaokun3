@@ -1,5 +1,15 @@
 # 当前状态与源码入口
 
+## Checkpoint 557 (2026-11-17)
+
+Device532 remains unreachable after read-only rechecks; no boot retry occurred.
+Prepared candidate555 adds a bounded numeric-only radio-status query to the
+restricted SSH reader, retaining authentication and existing command limits.
+Ten reader tests, ten sanitizer tests and five integration tests passed.
+555 is built locally, not installed/booted, and supersedes prepared546. No
+hardware/Share success is claimed. See
+[checkpoint557](../reports/live-radio-checkpoint-557.md).
+
 ## Checkpoint 550 (2026-11-17)
 
 Current state supersedes the notes below: the user confirmed517 Share failure
